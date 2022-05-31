@@ -6,3 +6,4 @@
 :- consult('palavra.pl').
 :- consult('cesar.pl').
 :- consult('predicados.pl').
+:- consult('vigenere.pl').
