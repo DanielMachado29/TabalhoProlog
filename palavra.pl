@@ -2,6 +2,23 @@
 
 :- dynamic palavra/1.
 
+
+inserePalavraNaMemoria(Palavra) :-
+    assertz(palavra(Palavra)).
+
+insereNovaPalavraNoDocumento(Palavra):-
+    palavra(Palavra),!.
+insereNovaPalavraNoDocumento(Palavra):-
+    open('palavra.pl',append,Out),
+    string_concat('\npalavra(''', Palavra, Concatenada1),
+    string_concat(Concatenada1, ''').', Concatenada2),
+    write(Out, Concatenada2),
+    close(Out).  
+
+deletaPalavraNaMemoria(Palavra):-
+    retract(palavra(Palavra)).
+    
+
 palavra(oi).
 palavra(bom).
 palavra(dia).
@@ -102,3 +119,10 @@ palavra(de).
 palavra(mim).
 palavra(amem).
 palavra(mago).
+palavra(a).
+palavra(e).
+palavra(o).
+palavra(ou).
+palavra('tomedalhe').
+palavra('testando123').
+palavra('oadisjdoasijd').
